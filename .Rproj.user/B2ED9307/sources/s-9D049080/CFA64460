@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1553876727309.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CFA64460",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1553876727309,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "id" : "d457d16784b64fd880103427b7439818",
+        "name" : "CompanyDT_model",
+        "title" : "CompanyDT_model"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "object_explorer"
+}

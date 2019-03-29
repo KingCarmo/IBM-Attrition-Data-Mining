@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1553887664135.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E09A2D0A",
+    "lastKnownWriteTime" : 1553874800,
+    "last_content_update" : 1553874800,
+    "path" : "~/GitHub/IBM-Attrition-Data-Mining-/All R code.R",
+    "project_path" : "All R code.R",
+    "properties" : {
+        "cursorPosition" : "344,0",
+        "scrollLine" : "315"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

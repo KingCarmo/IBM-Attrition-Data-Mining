@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1553522968988.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A19FE5AB",
+    "lastKnownWriteTime" : 1553869152,
+    "last_content_update" : 1553869152765,
+    "path" : "~/GitHub/IBM-Attrition-Data-Mining-/Naive Baye Code.R",
+    "project_path" : "Naive Baye Code.R",
+    "properties" : {
+        "cursorPosition" : "73,0",
+        "scrollLine" : "45"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
