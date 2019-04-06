@@ -39,15 +39,15 @@ hr_n <- as.data.frame(lapply(hr_rand[3:25], normalize))
 summary(hr_n)
 
 
-hr_train <- hr_n[1:1327, ]
-hr_test <- hr_n[1328:1659, ]
-hr_train_labels <- hr_rand[1:1327, 1]
-hr_test_labels <- hr_rand[1328:1659, 1]
+hr_train <- hr_n[1:1176, ]
+hr_test <- hr_n[1177:1470, ]
+hr_train_labels <- hr_rand[1:1176, 1]
+hr_test_labels <- hr_rand[1177:1470, 1]
 
-install.packages("class")
+#install.packages("class")
 library(class)
 
-sqrt(1327)
+sqrt(1176)
 hr_test_pred <- knn(train = hr_train, test = hr_test, cl = hr_train_labels, k=19)
 
 install.packages("gmodels")

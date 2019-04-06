@@ -1,59 +1,59 @@
 #Read file
-hr <- read.csv(file="Company.csv",head=TRUE,sep = ",", stringsAsFactors = FALSE)
-hr
+Company <- read.csv(file="Company.csv",head=TRUE,sep = ",", stringsAsFactors = FALSE)
+Company
 
 ##KNN algorithm starts here
 
-hr$EmployeeCount <-NULL
-hr$StandardHours <-NULL
-hr$BusinessTravel <-NULL
-hr$Department <-NULL
-hr$EducationField <-NULL
-hr$Gender <-NULL
-hr$JobRole <-NULL
-hr$MaritalStatus <-NULL
-hr$Over18 <-NULL
-hr$OverTime <-NULL
-str(hr)
+Company$EmployeeCount <-NULL
+Company$StandardHours <-NULL
+Company$BusinessTravel <-NULL
+Company$Department <-NULL
+Company$EducationField <-NULL
+Company$Gender <-NULL
+Company$JobRole <-NULL
+Company$MaritalStatus <-NULL
+Company$Over18 <-NULL
+Company$OverTime <-NULL
+str(Company)
 
 #Make back up of file
-write.csv(hr, file="hr.csv", row.names = F, na = " ")
+write.csv(Company, file="Company.csv", row.names = F, na = " ")
 
 #randomize
 set.seed(214805)
-hr_rand = hr[order(runif(1659)),]
+Company_rand = Company[order(runif(1659)),]
 
-str(hr_rand)
-hr_rand$Attrition
-table(hr_rand$Attrition)
-factor(hr_rand$Attrition, levels = c("No", "Yes"),labels = c("N", "Y")) 
-prop.table(table(hr_rand$Attrition))
-summary(hr_rand)
+str(Company_rand)
+Company_rand$Attrition
+table(Company_rand$Attrition)
+factor(Company_rand$Attrition, levels = c("No", "Yes"),labels = c("N", "Y")) 
+prop.table(table(Company_rand$Attrition))
+summary(Company_rand)
 
 normalize <- function(x) { return((x - min(x)) / (max(x)-min(x)))}
 normalize(c(1,2,3,4,5))
 normalize(c(10,20,30,40,50))
 
-hr_n <- as.data.frame(lapply(hr_rand[3:25], normalize))
+Company_n <- as.data.frame(lapply(Company_rand[3:25], normalize))
 
-summary(hr_n)
+summary(Company_n)
 
 
-hr_train <- hr_n[1:1327, ]
-hr_test <- hr_n[1328:1659, ]
-hr_train_labels <- hr_rand[1:1327, 1]
-hr_test_labels <- hr_rand[1328:1659, 1]
+Company_train <- Company_n[1:1176, ]
+Company_test <- Company_n[1177:1470, ]
+Company_train_labels <- Company_rand[1:1176, 1]
+Company_test_labels <- Company_rand[1177:1470, 1]
 
-install.packages("class")
+#install.packages("class")
 library(class)
 
-sqrt(1327)
-hr_test_pred <- knn(train = hr_train, test = hr_test, cl = hr_train_labels, k=19)
+sqrt(1176)
+Company_test_pred <- knn(train = Company_train, test = Company_test, cl = Company_train_labels, k=19)
 
 install.packages("gmodels")
 library("gmodels")
 
-CrossTable(x = hr_test_labels, y = hr_test_pred,prop.chisq=FALSE)
+CrossTable(x = Company_test_labels, y = Company_test_pred,prop.chisq=FALSE)
 #End of KNN techniques
 
 ###############################################################################
@@ -68,17 +68,17 @@ require(rpart.plot)
 
 
 # reading the data set
-hr = read.csv("Company.csv", header = TRUE)
+Company = read.csv("Company.csv", header = TRUE)
 
 # lets look at it structuer of the data
-str(hr)
+str(Company)
 
 
 normalize <- function(x) { return((x - min(x)) / (max(x)-min(x)))}
 normalize(c(1,2,3,4,5))
 normalize(c(10,20,30,40,50))
 
-barplot(prop.table(table(hr$Attrition)),
+barplot(prop.table(table(Company$Attrition)),
         col = rainbow(2),
         ylim = c(0, 0.7),
         main = "Class Distribution")
@@ -89,9 +89,9 @@ barplot(prop.table(table(hr$Attrition)),
 set.seed(1234) # sync the randomization / allows reproducibility
 
 # create a training and a test sub-set
-pd <- sample(2, nrow(hr),replace = TRUE, prob = c(0.8,0.2))
-train <- hr[pd==1,] 
-test <-hr[pd==2,] 
+pd <- sample(2, nrow(Company),replace = TRUE, prob = c(0.8,0.2))
+train <- Company[pd==1,] 
+test <-Company[pd==2,] 
 
 # data for Developing predictive Model 
 table(train$Attrition)
@@ -104,29 +104,29 @@ table(test$Attrition)
 prop.table(table(train$Attrition))
 prop.table(table(test$Attrition))
 #original
-prop.table(table(hr$Attrition))
+prop.table(table(Company$Attrition))
 
 # install and load the C5.0 library
 install.packages("C50")
 library("C50")
 
 # train the model
-hr_model = C5.0(train[,-3], train$Attrition)
-summary(hr_model)
+Company_model = C5.0(train[,-3], train$Attrition)
+summary(Company_model)
 
-m2 = rpart(Attrition ~ ., data=hr[1:1470,], method="class")
+m2 = rpart(Attrition ~ ., data=Company[1:1470,], method="class")
 m2 
 
 
 # Decision with rpat
 m2 <- rpart(Attrition~DailyRate+DistanceFromHome+JobInvolvement+MonthlyRate+RelationshipSatisfaction+WorkLifeBalance
-            + TrainingTimesLastYear+RelationshipSatisfaction +EnvironmentSatisfaction+HourlyRate, hr)
+            + TrainingTimesLastYear+RelationshipSatisfaction +EnvironmentSatisfaction+HourlyRate, Company)
 library(rpart.plot)
 rpart.plot(m2,extra = 4)
 
 
 # test the model
-hr_pred = predict(hr_model, train)  
+Company_pred = predict(Company_model, train)  
 
 
 # evaluation
@@ -134,11 +134,11 @@ install.packages("gmodels")
 library("gmodels")
 
 # CrossTable with all details
-CrossTable(test$Attrition, hr_pred) 
+CrossTable(test$Attrition, Company_pred) 
 
 
 # CrossTable that is a lot clearer
-CrossTable(test$Attrition, hr_pred, prop.chisq = FALSE, prop.c 
+CrossTable(test$Attrition, Company_pred, prop.chisq = FALSE, prop.c 
            = FALSE, prop.r = FALSE, dnn =c('actual_Attrition', 'predicted_Attrition'))
 
 ##############################################
@@ -146,50 +146,50 @@ CrossTable(test$Attrition, hr_pred, prop.chisq = FALSE, prop.c
 ##############################################
 
 # train another model, but this time a series of models
-hr_boost10 = C5.0(train[-1], train$Attrition, trials = 15)
-hr_boost10
+Company_boost10 = C5.0(train[-1], train$Attrition, trials = 15)
+Company_boost10
 
 # test the models
-hr_boost_predict10 = predict(hr_boost10, test) 
+Company_boost_predict10 = predict(Company_boost10, test) 
 
 # evaluate this now
-CrossTable(test$Attrition, hr_boost_predict10, prop.chisq = FALSE, prop.c = 
+CrossTable(test$Attrition, Company_boost_predict10, prop.chisq = FALSE, prop.c = 
              FALSE, prop.r = FALSE, dnn =c('actual_Attrition', 'predicted_Attrition'))
 
 #end of Decision tree
 #############################################################################
 
-#Association rules for IBM HR dataset
+#Association rules for IBM Company dataset
 ######################################
 
 #rerun again 
-hr <- read.csv("smoted_hr.csv", head = TRUE)
+Company <- read.csv("Company.csv", head = TRUE)
 #sort the data with specific attributes
-AR_hr <- hr[,names(hr) %in% c('Attrition','BusinessTravel','Department',
+AR_Company <- Company[,names(Company) %in% c('Attrition','BusinessTravel','Department',
                               'EducationField','Gender','JobRole','MaritalStatus')]
 
 # write as a output file
-write.csv(AR_hr, file="AR_hr.csv", row.names = F, na = " ")
+write.csv(AR_Company, file="AR_Company.csv", row.names = F, na = " ")
 
 #install.packages("arules")
 library(arules)
 
 set.seed(3653)
-ar_hr <- read.transactions("AR_hr.csv", sep =",", rm.duplicates = TRUE)
+ar_Company <- read.transactions("AR_Company.csv", sep =",", rm.duplicates = TRUE)
 
-#summary of hr data
-summary(ar_hr)
+#summary of Company data
+summary(ar_Company)
 
 #display first five row
-inspect(ar_hr[1:5])
+inspect(ar_Company[1:5])
 
 #build model bu using apriori function
-apriori(ar_hr)
-AR_rules <- apriori(ar_hr,parameter=list(support =0.01, confidence = 0.8, 
+apriori(ar_Company)
+AR_rules <- apriori(ar_Company,parameter=list(support =0.01, confidence = 0.8, 
                                          minlen = 2), appearance=list(rhs=c("No", "Yes"), default="lhs"))
 summary(AR_rules)
 
-## keep three decimal places
+## keep tCompanyee decimal places
 quality(AR_rules) <- round(quality(AR_rules), digits=4)
 
 #Rules after sorting
@@ -245,39 +245,39 @@ library("caret")
 library("gmodels")
 
 #read csv file
-hr<- read.csv("hr.csv")
+Company<- read.csv("Company.csv")
 #read this file when running the code second time
 
 #column names
-colnames(hr)
+colnames(Company)
 
 # clean data.
-summary(hr)
-str(hr)
-any(is.na(hr))
+summary(Company)
+str(Company)
+any(is.na(Company))
 
 #remove unwanted columns.
-hrN <- hr[ , -(c(3,6,9,10,18,20,24,26,28,31,32,34,35,36))]
+CompanyN <- Company[ , -(c(3,6,9,10,18,20,24,26,28,31,32,34,35,36))]
 #change 1st column name to Age
-colnames(hrN)[1] <- "Age"
+colnames(CompanyN)[1] <- "Age"
 #write a new csv
-write.csv(hrN, file="employeeD_new.csv", row.names = F, na = " ")
+write.csv(CompanyN, file="employeeD_new.csv", row.names = F, na = " ")
 
 # check column names
-colnames(hrN)
+colnames(CompanyN)
 
 # read new csv file second time running code.
-#hrN<- read.csv("employeeD_new.csv")
-hrN<- read.csv("smoted_hr.csv")
+#CompanyN<- read.csv("employeeD_new.csv")
+CompanyN<- read.csv("smoted_Company.csv")
 #split data one for train and other for test
 set.seed(2)
 
 #takes all observation, randomly select 80% of employees and 20%, so two value.
 #80% of time I want to select 1 and 20% time 2.
-p <- sample(2, nrow(hrN), prob = c(0.8,0.2), replace =T)
+p <- sample(2, nrow(CompanyN), prob = c(0.8,0.2), replace =T)
 
-train<- hrN[p==1,]
-test<- hrN[p==2,]
+train<- CompanyN[p==1,]
+test<- CompanyN[p==2,]
 nrow(train)
 nrow(test)
 

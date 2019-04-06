@@ -10,7 +10,7 @@ write.csv(AR_CompanyAssocRules, file="AR_CompanyAssocRules.csv", row.names = F, 
 #install.packages("arules")
 library(arules)
 
-set.seed(9999)
+set.seed(3653)
 ar_CompanyAssocRules <- read.transactions("AR_CompanyAssocRules.csv", sep =",", rm.duplicates = TRUE)
 
 #summary of CompanyAssocRules data

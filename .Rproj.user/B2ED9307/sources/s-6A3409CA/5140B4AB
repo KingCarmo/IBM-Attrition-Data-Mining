@@ -1,21 +1,21 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1553521017057.000,
+    "created" : 1554469814183.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "DA96822D",
-    "lastKnownWriteTime" : 1553523068,
-    "last_content_update" : 1553523068479,
+    "id" : "5140B4AB",
+    "lastKnownWriteTime" : 1554560202,
+    "last_content_update" : 1554560202209,
     "path" : "~/GitHub/IBM-Attrition-Data-Mining-/Association Rule Code.R",
     "project_path" : "Association Rule Code.R",
     "properties" : {
-        "cursorPosition" : "35,30",
-        "scrollLine" : "10"
+        "cursorPosition" : "50,0",
+        "scrollLine" : "20"
     },
-    "relative_order" : 1,
+    "relative_order" : 3,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

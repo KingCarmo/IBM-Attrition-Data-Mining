@@ -20,6 +20,7 @@ str(CompanyNaiveBaye)
 any(is.na(CompanyNaiveBaye))
 
 #remove unwanted columns.
+head(CompanyN)
 CompanyN <- CompanyNaiveBaye[ , -(c(3,6,9,10,18,20,24,26,28,31,32,34,35,36))]
 
 #change 1st column name to Age

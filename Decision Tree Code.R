@@ -67,9 +67,10 @@ rpart.plot(m2,extra = 4)
 
 # test the model (Error)
 CompanyDT_pred = predict(CompanyDT_model, test)  
-
+CompanyDT_pred
 
 # evaluation
+
 #install.packages("gmodels")
 library("gmodels")
 
@@ -80,18 +81,4 @@ CrossTable(test$Attrition, CompanyDT_pred)
 # CrossTable that is a lot clearer
 CrossTable(test$Attrition, CompanyDT_pred, prop.chisq = FALSE, prop.c 
            = FALSE, prop.r = FALSE, dnn =c('actual_Attrition', 'predicted_Attrition'))
-
-
-### boosting to '' find a better result ###
-
-# train another model, but this time a series of models
-CompanyDT_boost10 = C5.0(train[,-2, 22], train$Attrition, trials = 15)
-CompanyDT_boost10
-
-# test the models
-CompanyDT_boost_predict10 = predict(CompanyDT_boost10, test) 
-
-# evaluate this now
-CrossTable(test$Attrition, CompanyDT_boost_predict10, prop.chisq = FALSE, prop.c = 
-             FALSE, prop.r = FALSE, dnn =c('actual_Attrition', 'predicted_Attrition'))
 

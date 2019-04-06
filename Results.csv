@@ -1,0 +1,7 @@
+﻿,Naive Bayes,,Decision Tree,,Assosication Rules,
+Accuracy,81.93%,,87.55%,,N/A,
+,,,,,,
+Matrix,,,,,,
+Actual,No,Yes,No ,Yes,No,Yes
+No,254,35,204,25,86 Rules,0 Rules
+Yes,25,18,29,15,,
