@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "3266123547",
     "id" : "5140B4AB",
     "lastKnownWriteTime" : 1554560202,
     "last_content_update" : 1554560202209,
     "path" : "~/GitHub/IBM-Attrition-Data-Mining-/Association Rule Code.R",
     "project_path" : "Association Rule Code.R",
     "properties" : {
-        "cursorPosition" : "50,0",
-        "scrollLine" : "20"
+        "cursorPosition" : "42,40",
+        "scrollLine" : "30"
     },
     "relative_order" : 3,
     "source_on_save" : false,

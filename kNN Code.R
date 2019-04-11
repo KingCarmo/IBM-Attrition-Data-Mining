@@ -46,7 +46,7 @@ library(class)
 sqrt(1176)
 kNN_test_pred <- knn(train = kNN_train, test = kNN_test, cl = kNN_train_labels, k=19)
 
-install.packages("gmodels")
+#install.packages("gmodels")
 library("gmodels")
 
 CrossTable(x = kNN_test_labels, y = kNN_test_pred,prop.chisq=FALSE)

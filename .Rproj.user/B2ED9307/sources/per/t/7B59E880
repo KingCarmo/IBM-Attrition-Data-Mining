@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2563555242",
     "id" : "7B59E880",
-    "lastKnownWriteTime" : 1554473108,
-    "last_content_update" : 1554473108816,
+    "lastKnownWriteTime" : 1554834845,
+    "last_content_update" : 1554834845607,
     "path" : "~/GitHub/IBM-Attrition-Data-Mining-/Naive Baye Code.R",
     "project_path" : "Naive Baye Code.R",
     "properties" : {
-        "cursorPosition" : "21,25",
-        "scrollLine" : "0"
+        "cursorPosition" : "72,0",
+        "scrollLine" : "43"
     },
     "relative_order" : 1,
     "source_on_save" : false,

@@ -65,7 +65,7 @@ library(rpart.plot)
 rpart.plot(m2,extra = 4)
 
 
-# test the model (Error)
+# test the model
 CompanyDT_pred = predict(CompanyDT_model, test)  
 CompanyDT_pred
 

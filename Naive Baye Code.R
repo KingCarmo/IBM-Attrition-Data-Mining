@@ -9,7 +9,6 @@ library("gmodels")
 
 #read csv file
 CompanyNaiveBaye <- read.csv("Company.csv")
-#read this file when running the code second time
 
 #column names
 colnames(CompanyNaiveBaye)
@@ -51,6 +50,8 @@ nrow(test)
 #compare yes and no in two dataset
 prop.table(table(train$Attrition))
 prop.table(table(test$Attrition))
+#Original File Attrition
+prop.table(table(CompanyN$Attrition))
 
 #naive bayes
 emp <- naiveBayes(Attrition ~ Age + DailyRate + Department + Education + Education + EnvironmentSatisfaction + Gender + HourlyRate + JobInvolvement + JobLevel + JobSatisfaction + MonthlyIncome + NumCompaniesWorked + OverTime + PerformanceRating + YearsInCurrentRole, data = train)
